@@ -1,8 +1,20 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { createContext } from "react";
+import Store from "./store";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+interface IStore {
+  store: Store;
+}
+
+const store = new Store();
+
+export const Context = createContext<IStore>({ store });
+
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+  <Context.Provider value={{ store }}>
+    <App />
+  </Context.Provider>
 );
-root.render(<App />);
