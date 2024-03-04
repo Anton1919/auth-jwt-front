@@ -65,6 +65,9 @@ function App() {
           "Вы не автризованы !"
         )}
       </h1>
+      <h1>
+        {store.user.isActivated ? "Аккаунт подтвержден" : "Подтвертиде ваше аккаунт на почте"}
+      </h1>
       <button className={s.button} onClick={() => store.logout()}>
         Log out
       </button>
